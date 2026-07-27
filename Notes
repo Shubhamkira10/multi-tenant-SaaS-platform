@@ -1,0 +1,475 @@
+Platform
+
+            You
+      (Platform Owner)
+              │
+─────────────────────────────────────
+│                │                 │
+Company A      Company B       Company C
+(Tenant)       (Tenant)        (Tenant)
+│
+├── Company Admin
+│
+├── Manager
+│     ├── Employee
+│     ├── Employee
+│     └── Employee
+│
+└── HR
+
+
+Mail Automation System
+│
+├── Tenant
+│      Elemental Concept
+│      slug = elemental-concept
+│      ├── User
+│      │      Shubham
+│      │
+│      ├── User
+│      │      Rahul
+│      │
+│      └── User
+│             Priya
+│
+├── Tenant
+│      Google
+│      slug = google
+│      ├── User
+│      │      Alice
+│      │
+│      └── User
+│             Bob
+│
+└── Tenant
+       Microsoft
+       slug = microsoft
+       ├── User
+       └── User
+
+
+
+ID   Name        Parent
+
+1    Company Admin     NULL
+2    HR                1
+3    Manager           1
+4    Employee A        3
+5    Employee B        3
+6    Intern            4
+--------------------------------------------------------------------------------------------------
+
+
+SaaS Mail Automation Platform Checklist
+
+
+✅ Phase 1 - Backend Foundation (Completed)
+
+Authentication
+✅ Platform Admin Login
+✅ Tenant Login
+✅ User Login
+✅ JWT Access Token
+✅ JWT Refresh Token
+✅ Protected Routes
+
+Platform Management
+✅ Platform Admin CRUD
+✅ Tenant CRUD
+✅ User CRUD
+✅ Agent Creation
+
+RBAC Database
+✅ Features Table
+✅ Permissions Table
+✅ TenantFeature Table
+✅ UserFeature Table
+✅ FeaturePermission Table
+
+Feature Management
+✅ Create Feature
+✅ Update Feature
+✅ Delete Feature
+✅ Get Features
+
+RBAC APIs
+✅ Assign Feature → Tenant
+✅ Remove Feature → Tenant
+✅ Get Tenant Features
+✅ Assign Feature → User
+✅ Remove Feature → User
+✅ Get User Features
+✅ Assign Permission → Feature
+✅ Remove Permission → Feature
+✅ Get Feature Permissions
+✅ Phase 2 - Frontend Foundation (Completed)
+
+React Setup
+✅ Vite
+✅ Bootstrap
+✅ React Router
+✅ Axios
+
+Authentication
+✅ Platform Login Page
+✅ Tenant Login Page
+✅ AuthContext
+✅ JWT Storage
+✅ Logout
+
+Route Protection
+✅ Platform Protected Routes
+✅ Tenant Protected Routes
+✅ Role-based Route Guard
+
+Platform Pages
+✅ Dashboard
+✅ Tenants
+✅ Agents
+
+APIs
+✅ authApi.js
+✅ tenantApi.js
+✅ featureApi.js
+✅ rbacApi.js
+✅ Phase 3 - RBAC (Completed)
+
+Platform Admin
+✅ Feature CRUD
+✅ Assign Feature To Tenant Page
+✅ Tenant Feature Assignment API Connected
+
+Backend Login Response
+
+Previously
+{
+    access_token,
+    refresh_token
+}
+
+Now
+{
+    access_token,
+    refresh_token,
+    tenant_uuid,
+    tenant_name,
+    features:[]
+}
+
+✅ Completed
+
+
+
+
+🚧 Phase 4 - Current Work
+1. Tenant Creation
+
+Current
+
+Create Tenant
+      ↓
+Assign Features
+      ↓
+Login
+
+Target
+
+Create Tenant
+      ↓
+Select Features
+      ↓
+Save
+
+Status
+
+⬜ Not Started
+
+
+2. Tenant Sidebar
+
+Current
+
+Hardcoded
+
+Target
+
+Generated from
+
+response.data.features
+
+Status
+
+⬜ Not Started
+
+
+3. Tenant Login
+
+Need
+
+Store features
+
+↓
+
+AuthContext
+
+↓
+
+Sidebar
+
+Status
+
+🟨 Backend Ready
+
+⬜ Frontend Pending
+
+
+
+
+
+
+
+
+
+
+🚧 Phase 5 - Next Milestone
+Tenant Creation
+
+Current
+
+POST /tenants
+
+↓
+
+POST /rbac/tenants/features
+
+↓
+
+POST /rbac/tenants/features
+
+↓
+
+POST /rbac/tenants/features
+
+Target
+
+POST /tenants
+
+Request
+
+{
+    "name": "...",
+    "email": "...",
+    "password": "...",
+    "feature_uuids":[]
+}
+
+Status
+
+⬜ Pending
+
+Backend
+
+Need to modify
+
+TenantCreateSchema
+
+↓
+
+TenantService.create_tenant()
+
+↓
+
+TenantRepository
+
+↓
+
+Transaction
+
+Status
+
+⬜ Pending
+
+Frontend
+
+Need
+
+Tenant Form
+
+↓
+
+Feature Checkboxes
+
+↓
+
+Single Submit
+
+Status
+
+⬜ Pending
+
+
+
+
+
+
+
+🚧 Phase 6 - Dynamic Sidebar
+
+Need
+
+AuthContext
+
+↓
+
+Store Features
+
+↓
+
+Sidebar
+
+↓
+
+Map Features
+
+Status
+
+⬜ Pending
+
+
+
+
+
+
+🚧 Phase 7 - Feature Pages
+
+Need routes for
+
+/email
+
+/crm
+
+/inventory
+
+/warehouse
+
+/analytics
+
+Status
+
+⬜ Pending
+
+
+
+
+
+🚧 Phase 8 - User-Level RBAC
+
+Current
+
+Tenant
+
+↓
+
+Features
+
+Target
+
+Tenant
+
+↓
+
+Users
+
+↓
+
+Assign Features
+
+↓
+
+Dynamic Sidebar
+
+Status
+
+⬜ Pending
+
+
+
+
+
+
+
+🚧 Phase 9 - Permissions
+
+Current
+
+Feature
+
+Target
+
+Feature
+
+↓
+
+Permissions
+
+↓
+
+Button Visibility
+
+↓
+
+API Authorization
+
+Status
+
+⬜ Pending
+
+
+
+
+
+
+
+
+
+
+
+
+🚧 Phase 10 - Complete SaaS Flow
+
+Target Architecture
+
+Platform Admin
+        │
+        ▼
+Create Tenant
+        │
+        ▼
+Select Features
+        │
+        ▼
+Save Tenant
+        │
+        ▼
+Tenant Login
+        │
+        ▼
+JWT + Features
+        │
+        ▼
+Dynamic Sidebar
+        │
+        ▼
+Create Users
+        │
+        ▼
+Assign Features to Users
+        │
+        ▼
+User Login
+        │
+        ▼
+User Sidebar
+        │
+        ▼
+Permission-based Actions

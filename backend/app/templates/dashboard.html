@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="card shadow">
+
+    <div class="card-header bg-dark text-white">
+
+        <h3>{{ app_name }}</h3>
+
+    </div>
+
+    <div class="card-body">
+
+        <table class="table">
+
+            <tr>
+
+                <th>Status</th>
+
+                <td>
+                    <span class="badge bg-success">
+                        Running
+                    </span>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <th>Version</th>
+
+                <td>{{ version }}</td>
+
+            </tr>
+
+            <tr>
+
+                <th>Environment</th>
+
+                <td>{{ environment }}</td>
+
+            </tr>
+
+        </table>
+
+        <hr>
+
+        <a
+            href="/docs"
+            class="btn btn-primary">
+
+            Swagger
+
+        </a>
+
+        <a
+            href="/redoc"
+            class="btn btn-secondary">
+
+            ReDoc
+
+        </a>
+
+        <a
+            href="/health"
+            class="btn btn-success">
+
+            Health
+
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

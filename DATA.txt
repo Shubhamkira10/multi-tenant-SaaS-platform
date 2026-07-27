@@ -1,0 +1,275 @@
+Test Tenant APIs
+
+POST /tenants
+{
+  "name": "TT",
+  "email": "testtenant@example.com",
+  "password": "testtenant@123",
+  "phone": "123454321",
+  "description": "string"
+}
+
+
+Output:
+{
+  "success": true,
+  "message": "Tenant created successfully.",
+  "data": {
+    "id": 5,
+    "uuid": "054e3626-2031-4f6c-85a5-e28152e8e179",
+    "name": "TT",
+    "slug": "tt",
+    "email": "testtenant@example.com",
+    "phone": "123454321",
+    "description": "string",
+    "is_active": true
+  }
+}
+
+
+
+GET /tenants
+
+GET /tenants/{tenant_uuid}
+
+PUT /tenants/1b547f10-84a7-448e-a24d-645166a7b0e5
+{
+  "name": "Elemental Technologies Pvt Ltd",
+  "phone": "9999999999"
+}
+
+Output:
+{
+  "success": true,
+  "message": "Tenant updated successfully.",
+  "data": {
+    "id": 1,
+    "uuid": "9eded408-073f-4edb-b48a-7c4cf53c860e",
+    "name": "Elemental Technologies Pvt Ltd",
+    "slug": "elemental-technologies-pvt-ltd",
+    "email": "contact@elemental.com",
+    "phone": "9999999999",
+    "description": "Primary Tenant",
+    "is_active": true
+  }
+}
+
+
+Test User APIs
+
+POST /users
+{
+  "tenant_id": 1,
+  "first_name": "Shubham",
+  "last_name": "Singh",
+  "email": "shubham@example.com",
+  "password": "Admin@123"
+}
+
+Output:
+{
+  "success": true,
+  "message": "User created successfully.",
+  "data": {
+    "id": 1,
+    "uuid": "0952b4f2-7596-4c7f-b1b9-d7e0603f9e02",
+    "tenant_id": 1,
+    "first_name": "Shubham",
+    "last_name": "Singh",
+    "email": "shubham@example.com",
+    "is_active": true
+  }
+}
+
+GET /users
+
+GET /users/39196d71-e406-437d-8649-6f03b8b40ccf
+
+PUT /users/39196d71-e406-437d-8649-6f03b8b40ccf
+{
+  "first_name": "Shubh",
+  "last_name": "Singh"
+}
+
+Output:
+{
+  "success": true,
+  "message": "User updated successfully.",
+  "data": {
+    "id": 1,
+    "uuid": "3edd6d00-d5a3-4dfe-a49d-7c25fd9d62ea",
+    "tenant_id": 1,
+    "first_name": "Shubh",
+    "last_name": "Singh",
+    "email": "shubham@example.com",
+    "is_active": true
+  }
+}
+
+POST /api/users/agents
+{
+  "first_name": "Rahul",
+  "last_name": "Sharma",
+  "email": "rahul@elemental.com",
+  "password": "Agent@123"
+}
+
+Output:
+{
+  "success": true,
+  "message": "Agent created successfully.",
+  "data": {
+    "id": 2,
+    "uuid": "99bce0d8-202e-4d81-81c2-6c1de6420cb8",
+    "tenant_id": 1,
+    "parent_id": null,
+    "role": "agent",
+    "first_name": "Rahul",
+    "last_name": "Sharma",
+    "email": "rahul@elemental.com",
+    "is_active": true
+  }
+}
+
+
+
+Platform Login
+POST /api/platform-admins
+{
+  "full_name": "Shubham Singh",
+  "email": "shubhamjpsingh9@gmail.com",
+  "password": "Password@123"
+}
+
+Output:
+{
+  "success": true,
+  "message": "Platform admin created successfully.",
+  "data": {
+    "uuid": "0dfb7834-a8ea-478b-b360-fa2d723de491",
+    "full_name": "Shubham Singh",
+    "email": "shubhamjpsingh9@gmail.com",
+    "role": "PLATFORM_OWNER",
+    "is_active": true
+  }
+}
+
+{
+  "full_name": "Laxika ",
+  "email": "laxika.bisht@bcah.christuniversity.in",
+  "password": "Password@123"
+}
+
+Output:
+{
+  "success": true,
+  "message": "Platform admin created successfully.",
+  "data": {
+    "uuid": "8b443c2e-68d3-4642-96a3-77959d869bad",
+    "full_name": "Laxika ",
+    "email": "laxika.bisht@bcah.christuniversity.in",
+    "role": "PLATFORM_OWNER",
+    "is_active": true
+  }
+}
+
+GET /api/platform-admins/{uuid}
+
+PUT /api/platform-admins/{uuid}
+{
+  "full_name": "Shubham",
+  "password": "Password-123"
+}
+
+Output:
+
+
+
+Authentication
+POST /api/auth/platform/login
+{
+  "email": "shubhamjpsingh9@gmail.com",
+  "password": "Password@123"
+}
+
+Output:
+{
+  "success": true,
+  "message": "Platform admin login successful.",
+  "data": {
+    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwZGZiNzgzNC1hOGVhLTQ3OGItYjM2MC1mYTJkNzIzZGU0OTEiLCJlbnRpdHkiOiJwbGF0Zm9ybV9hZG1pbiIsInJvbGUiOiJQTEFURk9STV9PV05FUiIsImV4cCI6MTc4NDgxMTQ1MywidG9rZW5fdHlwZSI6ImFjY2VzcyJ9.rpwP2dzdmXDNi03L3sJIQurSaHQX7pvqz8UQydY-GUI",
+    "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwZGZiNzgzNC1hOGVhLTQ3OGItYjM2MC1mYTJkNzIzZGU0OTEiLCJlbnRpdHkiOiJwbGF0Zm9ybV9hZG1pbiIsInJvbGUiOiJQTEFURk9STV9PV05FUiIsImV4cCI6MTc4NTQxNTM1MywidG9rZW5fdHlwZSI6InJlZnJlc2gifQ.sD4LiEhtZr--D3hwLf-DGz1k-56p268GAdMtfp-ayVg",
+    "token_type": "bearer"
+  }
+}
+
+
+Tenant Login
+POST /api/auth/login
+{
+  "email": "contact@elemental.com",
+  "password": "Tenant@123"
+}
+
+Output:
+{
+  "success": true,
+  "message": "Tenant login successful.",
+  "data": {
+    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5ZWRlZDQwOC0wNzNmLTRlZGItYjQ4YS03YzRjZjUzYzg2MGUiLCJlbnRpdHkiOiJ0ZW5hbnQiLCJleHAiOjE3ODQ4MDM0NDMsInRva2VuX3R5cGUiOiJhY2Nlc3MifQ.34LFppvEVfUOADoREohzabecXBDVwAI9PkiFZiIloSc",
+    "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5ZWRlZDQwOC0wNzNmLTRlZGItYjQ4YS03YzRjZjUzYzg2MGUiLCJlbnRpdHkiOiJ0ZW5hbnQiLCJleHAiOjE3ODU0MDczNDMsInRva2VuX3R5cGUiOiJyZWZyZXNoIn0.oQNcddhoucYBL0jxXjX_BQ2kPKvjUbyJ9Eeo9DPf_Ec",
+    "token_type": "bearer"
+  }
+}
+
+User Login
+POST /api/auth/user/login
+{
+  "email": "shubham@example.com",
+  "password": "Admin@123"
+}
+
+Output:
+{
+  "success": true,
+  "message": "User login successful.",
+  "data": {
+    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwOTUyYjRmMi03NTk2LTRjN2YtYjFiOS1kN2UwNjAzZjllMDIiLCJ0eXBlIjoidGVuYW50X3VzZXIiLCJ0ZW5hbnRfaWQiOjEsImV4cCI6MTc4NDgwMzUzNiwidG9rZW5fdHlwZSI6ImFjY2VzcyJ9.6aqVLD2FcY1VBMLUMtIFzJ0ajo7btM4Qcas0rHLj0F0",
+    "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwOTUyYjRmMi03NTk2LTRjN2YtYjFiOS1kN2UwNjAzZjllMDIiLCJ0eXBlIjoidGVuYW50X3VzZXIiLCJ0ZW5hbnRfaWQiOjEsImV4cCI6MTc4NTQwNzQzNiwidG9rZW5fdHlwZSI6InJlZnJlc2gifQ.r6WUHK52YsTTCZydg0TUtp2FmsaDtw_eQixtiIpG6MA",
+    "token_type": "bearer"
+  }
+}
+
+Refresh Token
+POST /api/auth/refresh
+{
+  "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwOTUyYjRmMi03NTk2LTRjN2YtYjFiOS1kN2UwNjAzZjllMDIiLCJ0eXBlIjoidGVuYW50X3VzZXIiLCJ0ZW5hbnRfaWQiOjEsImV4cCI6MTc4NTQwNzQzNiwidG9rZW5fdHlwZSI6InJlZnJlc2gifQ.r6WUHK52YsTTCZydg0TUtp2FmsaDtw_eQixtiIpG6MA"
+}
+
+Output:
+{
+  "success": true,
+  "message": "Token refreshed successfully.",
+  "data": {
+    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwOTUyYjRmMi03NTk2LTRjN2YtYjFiOS1kN2UwNjAzZjllMDIiLCJ0eXBlIjoidGVuYW50X3VzZXIiLCJ0ZW5hbnRfaWQiOjEsImV4cCI6MTc4NDgwMzY0OCwidG9rZW5fdHlwZSI6ImFjY2VzcyJ9.siHlk7eAZLvP_0bXdfMKtzV3LHthp-Fg_kTpBkDN4OQ",
+    "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwOTUyYjRmMi03NTk2LTRjN2YtYjFiOS1kN2UwNjAzZjllMDIiLCJ0eXBlIjoidGVuYW50X3VzZXIiLCJ0ZW5hbnRfaWQiOjEsImV4cCI6MTc4NTQwNzU0OCwidG9rZW5fdHlwZSI6InJlZnJlc2gifQ.DGH9fSigt_2ZTau2KBKChy0tjxF5GrtHe5Ynmw_YH5o",
+    "token_type": "bearer"
+  }
+}
+
+
+  FEATURES
+  {
+  "success": true,
+  "message": "Feature created successfully.",
+  "data": {
+    "id": 1,
+    "uuid": "bb437e6b-5096-4dd3-8716-d3daf281195e",
+    "name": "email",
+    "slug": "email",
+    "route": "email",
+    "icon": "string",
+    "description": "it's an email",
+    "is_active": true
+  }
+}
