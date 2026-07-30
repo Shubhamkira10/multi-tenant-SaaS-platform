@@ -1,0 +1,10 @@
+[
+  {
+    "ticket_id": "RET-A1B2C3D4",
+    "order_id": "ORD1001",
+    "customer_id": "CUS1001",
+    "type": "Return",
+    "status": "Open",
+    "created_at": "2026-07-04 11:00:00"
+  }
+]

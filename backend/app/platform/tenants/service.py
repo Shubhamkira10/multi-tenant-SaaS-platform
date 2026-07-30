@@ -2,6 +2,12 @@ from __future__ import annotations
 
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
+import json
+import shutil
+import tempfile
+import zipfile
+from pathlib import Path
+from fastapi import HTTPException, UploadFile
 
 from app.platform.tenants.models import Tenant
 from app.platform.tenants.repository import TenantRepository
@@ -10,6 +16,17 @@ from app.shared.exceptions import ConflictException, NotFoundException
 from app.shared.utils import slugify, generate_unique_slug
 from app.core.security import hash_password
 from app.platform.rbac.repository import RBACRepository
+from app.core.tenant_database import TenantDatabaseManager
+
+
+REQUIRED_FILES = [
+    "customers.json",
+    "products.json",
+    "orders.json",
+    "tickets.json",
+    "conversations.json",
+    "email_logs.json",
+]
 
 class TenantService:
     def __init__(self, db: Session):
@@ -65,6 +82,10 @@ class TenantService:
             self.db.commit()
             self.db.refresh(tenant)
 
+            TenantDatabaseManager.create_database(
+                tenant.uuid
+            )
+
         except IntegrityError:
 
             self.db.rollback()
@@ -109,6 +130,76 @@ class TenantService:
 
     def delete(self, uuid) -> None:
         tenant = self.get(uuid)
+        tenant_uuid = tenant.uuid
         self.repository.delete(tenant)
         self.db.commit()
-    
+
+        try:
+            TenantDatabaseManager.delete_database(
+                tenant_uuid
+            )
+        except Exception as ex:
+            print(
+                f"Unable to delete tenant database: {ex}"
+            )
+
+    def upload_data(
+        self,
+        tenant_uuid,
+        file: UploadFile,
+    ):
+
+        tenant = self.get(tenant_uuid)
+
+        if not file.filename.endswith(".zip"):
+            raise HTTPException(
+                status_code=400,
+                detail="Please upload a ZIP file."
+            )
+
+        tenant_folder = (
+            Path(__file__).resolve().parent.parent.parent
+            / "tenant_data"
+            / str(tenant.uuid)
+        )
+
+        with tempfile.TemporaryDirectory() as temp_dir:
+
+            zip_path = Path(temp_dir) / "upload.zip"
+
+            with open(zip_path, "wb") as f:
+                shutil.copyfileobj(file.file, f)
+
+            with zipfile.ZipFile(zip_path, "r") as zip_ref:
+                zip_ref.extractall(temp_dir)
+
+            for filename in REQUIRED_FILES:
+
+                source = Path(temp_dir) / filename
+
+                if not source.exists():
+                    raise HTTPException(
+                        status_code=400,
+                        detail=f"{filename} not found."
+                    )
+
+                try:
+                    with open(source, "r", encoding="utf-8") as f:
+                        json.load(f)
+                except Exception:
+                    raise HTTPException(
+                        status_code=400,
+                        detail=f"{filename} is not valid JSON."
+                    )
+
+            for filename in REQUIRED_FILES:
+
+                shutil.copy2(
+                    Path(temp_dir) / filename,
+                    tenant_folder / filename,
+                )
+
+        return {
+            "success": True,
+            "message": "Tenant data uploaded successfully."
+        }

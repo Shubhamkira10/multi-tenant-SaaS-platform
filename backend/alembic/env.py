@@ -18,6 +18,17 @@ from app.platform.features.models import (
     UserFeature,
 )
 
+from app.platform.mail.models import (
+    Customer,
+    Product,
+    Order,
+    OrderItem,
+    Ticket,
+    Conversation,
+    Message,
+    EmailLog,
+)
+
 from app.platform.permissions.models import Permission
 from app.platform.feature_permissions.models import FeaturePermission
 

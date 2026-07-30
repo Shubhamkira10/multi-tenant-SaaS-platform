@@ -1,14 +1,23 @@
 import { NavLink } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 function Sidebar({ role = "platform" }) {
+
+    const { features } = useAuth();
 
     return (
 
         <div
-            className="bg-dark text-white p-3"
+            className="bg-dark text-white p-3 d-flex flex-column"
             style={{
-                width: "250px",
-                minHeight: "100vh",
+                width: "260px",
+                minWidth: "260px",
+                maxWidth: "260px",
+                height: "100vh",
+                position: "sticky",
+                top: 0,
+                overflowY: "auto",
+                flexShrink: 0,
             }}
         >
 
@@ -61,55 +70,27 @@ function Sidebar({ role = "platform" }) {
 
                         </li>
 
-                        <li className="nav-item">
+                        {features.map((feature) => (
 
-                            <NavLink
-                                to="/agents"
-                                className="nav-link text-white"
+                            <li
+                                className="nav-item"
+                                key={feature.uuid}
                             >
-                                <i className="bi bi-person-badge me-2"></i>
-                                Agents
-                            </NavLink>
 
-                        </li>
+                                <NavLink
+                                    to={`/tenant/${feature.route}`}
+                                    className="nav-link text-white"
+                                >
 
-                        <li className="nav-item">
+                                    <i className={`${feature.icon} me-2`}></i>
 
-                            <NavLink
-                                to="/users"
-                                className="nav-link text-white"
-                            >
-                                <i className="bi bi-people me-2"></i>
-                                Users
-                            </NavLink>
+                                    {feature.name}
 
-                        </li>
+                                </NavLink>
 
-                        <li className="nav-item">
+                            </li>
 
-                            <NavLink
-                                to="/interns"
-                                className="nav-link text-white"
-                            >
-                                <i className="bi bi-person-workspace me-2"></i>
-                                Interns
-                            </NavLink>
-
-                        </li>
-
-                        <li className="nav-item">
-
-                            <NavLink
-                                to="/assign-features"
-                                className="nav-link text-white"
-                            >
-                                <i className="bi bi-grid me-2"></i>
-
-                                Assign Features
-
-                            </NavLink>
-
-                        </li>
+                        ))}
 
                     </>
                 )}

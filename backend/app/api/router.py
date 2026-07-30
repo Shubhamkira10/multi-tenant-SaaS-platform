@@ -3,6 +3,7 @@ from fastapi import APIRouter
 from app.api.dashboard import router as dashboard_router
 from app.api.health import router as health_router
 from app.platform.tenants.routes import router as tenant_router
+from app.api.tenant import router as tenant_upload_router
 from app.platform.users.routes import router as users_router
 from app.platform.admins.routes import router as admin_router
 from app.platform.auth.routes import router as auth_router
@@ -15,6 +16,9 @@ api_router = APIRouter()
 # System Routes
 api_router.include_router(dashboard_router)
 api_router.include_router(health_router)
+
+# Tenant APIs
+api_router.include_router(tenant_upload_router)
 
 # Platform Routes
 api_router.include_router(tenant_router)

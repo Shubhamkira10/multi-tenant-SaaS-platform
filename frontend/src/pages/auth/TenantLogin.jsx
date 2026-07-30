@@ -33,8 +33,12 @@ function TenantLogin() {
             const response = await tenantLogin(form);
 
             console.log(response);
-            
-            login(response.access_token, "tenant");
+
+            login(
+                response.data.access_token,
+                "tenant",
+                response.data.features
+            );
 
             navigate("/tenant/dashboard");
 

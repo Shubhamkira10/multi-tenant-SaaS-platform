@@ -19,3 +19,26 @@ export const deleteTenant = async (uuid) => {
     const response = await api.delete(`/tenants/${uuid}`);
     return response.data;
 };
+
+export const uploadTenantData = async (file) => {
+    const formData = new FormData();
+    formData.append("file", file);
+
+    const response = await api.post(
+        "/tenant/upload-data",
+        formData,
+        {
+            headers: {
+                "Content-Type": "multipart/form-data",
+            },
+        }
+    );
+
+    return response.data;
+};
+
+
+export const getCurrentTenant = async () => {
+    const response = await api.get("/tenant/me");
+    return response.data;
+};

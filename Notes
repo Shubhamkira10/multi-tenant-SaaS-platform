@@ -52,7 +52,7 @@ Mail Automation System
 ID   Name        Parent
 
 1    Company Admin     NULL
-2    HR                1
+2    Flipkart HR                1
 3    Manager           1
 4    Employee A        3
 5    Employee B        3

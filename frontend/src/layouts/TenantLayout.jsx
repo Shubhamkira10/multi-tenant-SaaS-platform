@@ -3,20 +3,33 @@ import Sidebar from "../components/Sidebar";
 
 function TenantLayout({ children }) {
     return (
-        <div className="d-flex">
-
+        <div
+            className="d-flex"
+            style={{
+                minHeight: "100vh",
+                overflow: "hidden",
+            }}
+        >
             <Sidebar role="tenant" />
 
-            <div className="flex-grow-1 bg-light min-vh-100">
-
+            <div
+                className="flex-grow-1 d-flex flex-column"
+                style={{
+                    minWidth: 0,
+                    overflow: "hidden",
+                }}
+            >
                 <Navbar />
 
-                <main className="container-fluid p-4">
+                <main
+                    className="flex-grow-1 p-4"
+                    style={{
+                        overflow: "auto",
+                    }}
+                >
                     {children}
                 </main>
-
             </div>
-
         </div>
     );
 }

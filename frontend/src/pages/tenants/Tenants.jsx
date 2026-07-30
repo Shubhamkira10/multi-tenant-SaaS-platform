@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import AdminLayout from "../../layouts/AdminLayout";
-import { getTenants } from "../../api/tenantApi";
+import { getTenants, uploadTenantData, } from "../../api/tenantApi";
 import AddTenantModal from "../../components/tenants/AddTenantModal";
 import EditTenantModal from "../../components/tenants/EditTenantModal";
 import DeleteTenantModal from "../../components/tenants/DeleteTenantModal";
@@ -175,6 +175,7 @@ function Tenants() {
                 setShowDeleteModal(false);
             }}
         />
+
         </AdminLayout>
 
     );

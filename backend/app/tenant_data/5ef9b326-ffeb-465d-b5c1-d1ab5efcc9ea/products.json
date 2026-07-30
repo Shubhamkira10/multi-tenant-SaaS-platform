@@ -1,0 +1,18 @@
+[
+  {
+    "product_id": "PROD1001",
+    "name": "Wireless Mouse",
+    "sku": "WM-101",
+    "price": 799,
+    "stock": 150,
+    "category": "Accessories"
+  },
+  {
+    "product_id": "PROD1002",
+    "name": "Mechanical Keyboard",
+    "sku": "MK-202",
+    "price": 2499,
+    "stock": 80,
+    "category": "Accessories"
+  }
+]

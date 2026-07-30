@@ -1,0 +1,116 @@
+[
+  {
+    "product_id": "PROD1001",
+    "name": "Wireless Mouse",
+    "sku": "WM-101",
+    "price": 799,
+    "stock": 150,
+    "category": "Accessories",
+
+    "replacement_allowed": true,
+    "return_allowed": true,
+    "refund_allowed": true,
+
+    "replacement_window_days": 7,
+    "return_window_days": 30,
+    "refund_window_days": 30,
+
+    "warranty_months": 12,
+    "requires_serial_number": false
+  },
+  {
+    "product_id": "PROD1002",
+    "name": "Mechanical Keyboard",
+    "sku": "MK-202",
+    "price": 2499,
+    "stock": 80,
+    "category": "Accessories",
+
+    "replacement_allowed": true,
+    "return_allowed": true,
+    "refund_allowed": true,
+
+    "replacement_window_days": 7,
+    "return_window_days": 15,
+    "refund_window_days": 15,
+
+    "warranty_months": 24,
+    "requires_serial_number": true
+  },
+  {
+    "product_id": "PROD1003",
+    "name": "USB-C Hub",
+    "sku": "UCH-303",
+    "price": 1499,
+    "stock": 60,
+    "category": "Accessories",
+
+    "replacement_allowed": true,
+    "return_allowed": true,
+    "refund_allowed": false,
+
+    "replacement_window_days": 7,
+    "return_window_days": 15,
+    "refund_window_days": 0,
+
+    "warranty_months": 12,
+    "requires_serial_number": false
+  },
+  {
+    "product_id": "PROD1004",
+    "name": "External SSD 1TB",
+    "sku": "SSD-404",
+    "price": 6999,
+    "stock": 35,
+    "category": "Storage",
+
+    "replacement_allowed": true,
+    "return_allowed": true,
+    "refund_allowed": true,
+
+    "replacement_window_days": 10,
+    "return_window_days": 30,
+    "refund_window_days": 30,
+
+    "warranty_months": 36,
+    "requires_serial_number": true
+  },
+  {
+    "product_id": "PROD1005",
+    "name": "Gaming Monitor",
+    "sku": "GM-505",
+    "price": 18999,
+    "stock": 20,
+    "category": "Monitors",
+
+    "replacement_allowed": true,
+    "return_allowed": false,
+    "refund_allowed": false,
+
+    "replacement_window_days": 7,
+    "return_window_days": 0,
+    "refund_window_days": 0,
+
+    "warranty_months": 24,
+    "requires_serial_number": true
+  },
+  {
+    "product_id": "PROD1006",
+    "name": "Digital Software License",
+    "sku": "DSL-606",
+    "price": 4999,
+    "stock": 999,
+    "category": "Digital",
+
+    "replacement_allowed": false,
+    "return_allowed": false,
+    "refund_allowed": false,
+
+    "replacement_window_days": 0,
+    "return_window_days": 0,
+    "refund_window_days": 0,
+
+    "warranty_months": 0,
+    "requires_serial_number": false
+  }
+]
