@@ -21,7 +21,7 @@ import Emails from "../pages/tenants/Emails";
 import Conversations from "../pages/tenants/Conversations";
 import Products from "../pages/tenants/Products";
 import TestEmail from "../pages/tenants/TestEmail";
-
+import TenantLayout from "../layouts/TenantLayout";
 function AppRoutes() {
     return (
         <BrowserRouter>
@@ -67,85 +67,24 @@ function AppRoutes() {
                 {/* Tenant */}
 
                 <Route
-                    path="/tenant/dashboard"
+                    path="/tenant"
                     element={
                         <ProtectedRoute allowedRoles={["tenant"]}>
-                            <TenantDashboard />
+                            <TenantLayout />
                         </ProtectedRoute>
                     }
-                />
-
-                <Route
-                    path="/tenant/overview"
-                    element={
-                        <ProtectedRoute allowedRoles={["tenant"]}>
-                            <Dashboard />
-                        </ProtectedRoute>
-                    }
-                />
-
-                <Route
-                    path="/tenant/orders"
-                    element={
-                        <ProtectedRoute allowedRoles={["tenant"]}>
-                            <Orders />
-                        </ProtectedRoute>
-                    }
-                />
-
-                <Route
-                    path="/tenant/tickets"
-                    element={
-                        <ProtectedRoute allowedRoles={["tenant"]}>
-                            <Tickets />
-                        </ProtectedRoute>
-                    }
-                />
-
-                <Route
-                    path="/tenant/customers"
-                    element={
-                        <ProtectedRoute allowedRoles={["tenant"]}>
-                            <Customers />
-                        </ProtectedRoute>
-                    }
-                />
-
-                <Route
-                    path="/tenant/mail-logs"
-                    element={
-                        <ProtectedRoute allowedRoles={["tenant"]}>
-                            <Emails />
-                        </ProtectedRoute>
-                    }
-                />
-
-                <Route
-                    path="/tenant/conversations"
-                    element={
-                        <ProtectedRoute allowedRoles={["tenant"]}>
-                            <Conversations />
-                        </ProtectedRoute>
-                    }
-                />
-
-                <Route
-                    path="/tenant/products"
-                    element={
-                        <ProtectedRoute allowedRoles={["tenant"]}>
-                            <Products />
-                        </ProtectedRoute>
-                    }
-                />
-
-                <Route
-                    path="/tenant/test-mail"
-                    element={
-                        <ProtectedRoute allowedRoles={["tenant"]}>
-                            <TestEmail />
-                        </ProtectedRoute>
-                    }
-                />
+                >
+                    <Route index element={<TenantDashboard />} />
+                    <Route path="dashboard" element={<TenantDashboard />} />
+                    <Route path="overview" element={<Dashboard />} />
+                    <Route path="orders" element={<Orders />} />
+                    <Route path="tickets" element={<Tickets />} />
+                    <Route path="customers" element={<Customers />} />
+                    <Route path="mail-logs" element={<Emails />} />
+                    <Route path="conversations" element={<Conversations />} />
+                    <Route path="products" element={<Products />} />
+                    <Route path="test-mail" element={<TestEmail />} />
+                </Route>
 
                 {/* 404 */}
 

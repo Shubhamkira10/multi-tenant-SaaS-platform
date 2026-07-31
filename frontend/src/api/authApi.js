@@ -17,6 +17,6 @@ export const tenantLogin = async (data) => {
         data
     );
 
-    return response.data;
+    return response.data.data;
 
 };

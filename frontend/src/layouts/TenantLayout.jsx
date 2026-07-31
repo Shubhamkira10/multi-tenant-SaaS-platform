@@ -1,7 +1,8 @@
+import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 
-function TenantLayout({ children }) {
+function TenantLayout() {
     return (
         <div
             className="d-flex"
@@ -27,7 +28,7 @@ function TenantLayout({ children }) {
                         overflow: "auto",
                     }}
                 >
-                    {children}
+                    <Outlet />
                 </main>
             </div>
         </div>

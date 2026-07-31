@@ -15,88 +15,86 @@ function MailLogs() {
 
     if (loading) {
         return (
-            <TenantLayout>
+            <div>
                 <h4>Loading...</h4>
-            </TenantLayout>
+            </div>
         );
     }
 
     if (error) {
         return (
-            <TenantLayout>
+            <div>
                 <h4>Failed to load email logs.</h4>
-            </TenantLayout>
+            </div>
         );
     }
 
     return (
-        <TenantLayout>
-            <div className="page-content">
+        <div className="page-content">
 
-                <div className="page-header">
-                    <h2>Email Logs</h2>
-                    <p>All processed customer emails and their outcomes</p>
-                </div>
+            <div className="page-header">
+                <h2>Email Logs</h2>
+                <p>All processed customer emails and their outcomes</p>
+            </div>
 
-                <div className="table-container">
+            <div className="table-container">
 
-                    <table className="data-table">
+                <table className="data-table">
 
-                        <thead>
-                            <tr>
-                                <th>Provider Message ID</th>
-                                <th>Recipient</th>
-                                <th>Subject</th>
-                                <th>Template</th>
-                                <th>Status</th>
-                                <th>Sent At</th>
+                    <thead>
+                        <tr>
+                            <th>Provider Message ID</th>
+                            <th>Recipient</th>
+                            <th>Subject</th>
+                            <th>Template</th>
+                            <th>Status</th>
+                            <th>Sent At</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        {emails.map((email, index) => (
+
+                            <tr key={email.uuid}>
+
+                                <td className="mono">
+                                    {email.provider_message_id || "-"}
+                                </td>
+
+                                <td>
+                                    {email.recipient}
+                                </td>
+
+                                <td>
+                                    {email.subject}
+                                </td>
+
+                                <td>
+                                    {email.template_name || "-"}
+                                </td>
+
+                                <td>
+                                    <span className="badge badge-processed">
+                                        {email.status}
+                                    </span>
+                                </td>
+
+                                <td>
+                                    {email.sent_at || "-"}
+                                </td>
+
                             </tr>
-                        </thead>
 
-                        <tbody>
+                        ))}
 
-                            {emails.map((email, index) => (
+                    </tbody>
 
-                                <tr key={email.uuid}>
-
-                                    <td className="mono">
-                                        {email.provider_message_id || "-"}
-                                    </td>
-
-                                    <td>
-                                        {email.recipient}
-                                    </td>
-
-                                    <td>
-                                        {email.subject}
-                                    </td>
-
-                                    <td>
-                                        {email.template_name || "-"}
-                                    </td>
-
-                                    <td>
-                                        <span className="badge badge-processed">
-                                            {email.status}
-                                        </span>
-                                    </td>
-
-                                    <td>
-                                        {email.sent_at || "-"}
-                                    </td>
-
-                                </tr>
-
-                            ))}
-
-                        </tbody>
-
-                    </table>
-
-                </div>
+                </table>
 
             </div>
-        </TenantLayout>
+
+        </div>
     );
 }
 

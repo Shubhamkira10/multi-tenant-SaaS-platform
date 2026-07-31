@@ -35,9 +35,9 @@ function TenantLogin() {
             console.log(response);
 
             login(
-                response.data.access_token,
+                response.access_token,
                 "tenant",
-                response.data.features
+                response.features
             );
 
             navigate("/tenant/dashboard");

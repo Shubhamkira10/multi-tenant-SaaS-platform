@@ -3,6 +3,7 @@ import { fetchConversations } from "../../api/mailApi";
 import usePolling from "../../hooks/usePolling";
 import { MessageSquare, ChevronRight, User, Bot, AlertTriangle } from "lucide-react";
 import "./Conversations.css";
+import TenantLayout from "../../layouts/TenantLayout";
 
 const FILTERS = [
   { key: "all", label: "All" },
@@ -225,5 +226,6 @@ export default function Conversations() {
         </div>
       </div>
     </div>
+
   );
 }

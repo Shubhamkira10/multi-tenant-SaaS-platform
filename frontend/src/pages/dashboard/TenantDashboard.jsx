@@ -45,93 +45,90 @@ function TenantDashboard() {
 
     return (
 
-        <TenantLayout>
 
-            <div className="container-fluid">
+        <div className="container-fluid">
 
-                <div className="mb-4 d-flex justify-content-between align-items-center">
+            <div className="mb-4 d-flex justify-content-between align-items-center">
 
-                    <div>
+                <div>
 
-                        <h2>Tenant Dashboard</h2>
+                    <h2>Tenant Dashboard</h2>
 
-                        <p className="text-muted mb-0">
-                            Welcome to the Tenant Management Panel
-                        </p>
+                    <p className="text-muted mb-0">
+                        Welcome to the Tenant Management Panel
+                    </p>
 
-                    </div>
+                </div>
 
-                    <div className="d-flex flex-column align-items-end">
+                <div className="d-flex flex-column align-items-end">
 
-                        <button
-                            className="btn btn-primary"
-                            onClick={() => fileInput.current.click()}
-                        >
-                            <i className="bi bi-upload me-2"></i>
-                            Upload Company Data
-                        </button>
+                    <button
+                        className="btn btn-primary"
+                        onClick={() => fileInput.current.click()}
+                    >
+                        <i className="bi bi-upload me-2"></i>
+                        Upload Company Data
+                    </button>
 
-                        <small className="text-muted mt-2">
-                            <strong>Company UUID:</strong> {tenant?.uuid}
-                        </small>
+                    <small className="text-muted mt-2">
+                        <strong>Company UUID:</strong> {tenant?.uuid}
+                    </small>
 
-                        <input
-                            ref={fileInput}
-                            type="file"
-                            hidden
-                            accept=".zip"
-                            onChange={handleUpload}
-                        />
+                    <input
+                        ref={fileInput}
+                        type="file"
+                        hidden
+                        accept=".zip"
+                        onChange={handleUpload}
+                    />
+
+                </div>
+
+            </div>
+
+            <div className="row g-4">
+
+                <div className="col-md-4">
+
+                    <div className="card shadow-sm">
+
+                        <div className="card-body">
+
+                            <h6>Total Agents</h6>
+
+                            <h2>0</h2>
+
+                        </div>
 
                     </div>
 
                 </div>
 
-                <div className="row g-4">
+                <div className="col-md-4">
 
-                    <div className="col-md-4">
+                    <div className="card shadow-sm">
 
-                        <div className="card shadow-sm">
+                        <div className="card-body">
 
-                            <div className="card-body">
+                            <h6>Total Users</h6>
 
-                                <h6>Total Agents</h6>
-
-                                <h2>0</h2>
-
-                            </div>
+                            <h2>0</h2>
 
                         </div>
 
                     </div>
 
-                    <div className="col-md-4">
+                </div>
 
-                        <div className="card shadow-sm">
+                <div className="col-md-4">
 
-                            <div className="card-body">
+                    <div className="card shadow-sm">
 
-                                <h6>Total Users</h6>
+                        <div className="card-body">
 
-                                <h2>0</h2>
+                            <h6>Total Interns</h6>
 
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <div className="col-md-4">
-
-                        <div className="card shadow-sm">
-
-                            <div className="card-body">
-
-                                <h6>Total Interns</h6>
-
-                                <h2>0</h2>
-
-                            </div>
+                            <h2>0</h2>
 
                         </div>
 
@@ -141,7 +138,9 @@ function TenantDashboard() {
 
             </div>
 
-        </TenantLayout>
+        </div>
+
+
 
     );
 
