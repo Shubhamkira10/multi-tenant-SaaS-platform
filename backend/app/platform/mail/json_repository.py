@@ -210,15 +210,28 @@ class JsonMailRepository:
     def create_conversation(
         self,
         customer,
+        order,
         subject,
     ):
-
         conversations = self.loader.conversations()
+
+        if order:
+            conversation_id = f"CONV-{order['order_id']}"
+            order_uuid = order["uuid"]
+            order_id = order["order_id"]
+        else:
+            conversation_id = f"CONV-{uuid.uuid4().hex[:8].upper()}"
+            order_uuid = None
+            order_id = None
 
         conversation = {
             "uuid": str(uuid.uuid4()),
-            "customer_email": customer["email"],
-            "customer_name": customer["name"],
+            "conversation_id": conversation_id,
+            "customer_uuid": customer["uuid"] if customer else None,
+            "customer_email": customer["email"] if customer else None,
+            "customer_name": customer["name"] if customer else "Unknown",
+            "order_uuid": order_uuid,
+            "order_id": order_id,
             "subject": subject,
             "status": "OPEN",
             "created_at": datetime.utcnow().isoformat(),
@@ -233,7 +246,7 @@ class JsonMailRepository:
         )
 
         return conversation
-    
+
     def add_message(
         self,
         conversation_id,
@@ -403,30 +416,3 @@ class JsonMailRepository:
             "reply_to_email": "support@elementalconcept.com",
 
         }
-    
-    def create_conversation(
-        self,
-        customer,
-        order,
-        subject,
-    ):
-
-        conversations = self.loader.conversations()
-
-        conversation = {
-            "uuid": str(uuid.uuid4()),
-            "conversation_id": f"CONV-{order['order_id']}",
-            "order_uuid": order["uuid"],
-            "customer_uuid": customer["uuid"],
-            "order_status": order["status"],
-            "messages": [],
-        }
-
-        conversations.append(conversation)
-
-        self.loader.write(
-            "conversations.json",
-            conversations,
-        )
-
-        return conversation

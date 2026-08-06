@@ -1,20 +1,34 @@
 [
   {
-    "uuid": "5b0c2c80-4fd4-45af-a0cb-1e9b9d65c101",
+    "uuid": "11111111-aaaa-1111-aaaa-111111111111",
     "customer_id": "CUS1001",
     "name": "Rahul Sharma",
     "email": "rahul@example.com",
     "phone": "+91-9876543210",
-    "total_orders": 5,
-    "total_spent": 12500
+    "total_spent": 799
   },
   {
-    "uuid": "9b0f924d-cfa3-4bd8-a7e8-8f7d9cb5e202",
+    "uuid": "22222222-bbbb-2222-bbbb-222222222222",
     "customer_id": "CUS1002",
     "name": "Priya Verma",
     "email": "priya@example.com",
     "phone": "+91-9988776655",
-    "total_orders": 2,
-    "total_spent": 5200
+    "total_spent": 2499
+  },
+  {
+    "uuid": "33333333-cccc-3333-cccc-333333333333",
+    "customer_id": "CUS1003",
+    "name": "Amit Patel",
+    "email": "amit@example.com",
+    "phone": "+91-9876501122",
+    "total_spent": 3499
+  },
+  {
+    "uuid": "44444444-dddd-4444-dddd-444444444444",
+    "customer_id": "CUS1004",
+    "name": "Sneha Gupta",
+    "email": "sneha@example.com",
+    "phone": "+91-9123456789",
+    "total_spent": 15999
   }
 ]
