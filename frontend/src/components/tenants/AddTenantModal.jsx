@@ -14,6 +14,11 @@ function AddTenantModal({
         password: "",
         phone: "",
         description: "",
+
+        support_email: "",
+        sender_name: "",
+        reply_to_email: "",
+
         feature_uuids: [],
     });
 
@@ -76,6 +81,11 @@ function AddTenantModal({
             password: "",
             phone: "",
             description: "",
+
+            support_email: "",
+            sender_name: "",
+            reply_to_email: "",
+
             feature_uuids: [],
         });
 
@@ -213,6 +223,47 @@ function AddTenantModal({
                                     onChange={handleChange}
                                 />
 
+                            </div>
+
+                            <div className="mb-3">
+                                <label className="form-label">
+                                    Support Mail
+                                </label>
+
+                                <input
+                                    type="email"
+                                    className="form-control"
+                                    name="support_email"
+                                    value={form.support_email}
+                                    onChange={handleChange}
+                                />
+                            </div>
+
+                            <div className="mb-3">
+                                <label className="form-label">
+                                    Sender Name
+                                </label>
+
+                                <input
+                                    className="form-control"
+                                    name="sender_name"
+                                    value={form.sender_name}
+                                    onChange={handleChange}
+                                />
+                            </div>
+
+                            <div className="mb-3">
+                                <label className="form-label">
+                                    Reply-To Mail
+                                </label>
+
+                                <input
+                                    type="email"
+                                    className="form-control"
+                                    name="reply_to_email"
+                                    value={form.reply_to_email}
+                                    onChange={handleChange}
+                                />
                             </div>
 
                             <div className="mb-3">

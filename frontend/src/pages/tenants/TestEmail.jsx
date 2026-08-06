@@ -15,18 +15,36 @@ export default function TestEmail() {
     setStatus(null);
 
     try {
-      const res = await sendTestEmail({ senderEmail, subject, body });
-      if (res.ok) {
-        setStatus({ type: "success", message: `Email processed successfully (${res.status})` });
+      const res = await sendTestEmail({
+        senderEmail,
+        subject,
+        body,
+      });
+
+      if (res.success) {
+        setStatus({
+          type: "success",
+          message:
+            `Conversation: ${res.conversation_id}\n\n` +
+            res.reply,
+        });
+
         setSenderEmail("");
         setSubject("");
         setBody("");
       } else {
-        setStatus({ type: "error", message: `Server returned ${res.status}: ${res.text}` });
+        setStatus({
+          type: "error",
+          message: "Email processing failed",
+        });
       }
     } catch (err) {
-      setStatus({ type: "error", message: `Network error: ${err.message}` });
-    } finally {
+      setStatus({
+        type: "error",
+        message: err.message,
+      });
+    }
+     finally {
       setLoading(false);
     }
   };

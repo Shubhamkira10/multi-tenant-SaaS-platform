@@ -121,7 +121,9 @@ export default function Orders() {
                     </span>
                   </td>
 
-                  <td>{o.order_date}</td>
+                  <td>
+                    {new Date(o.ordered_at).toLocaleDateString("en-GB")}
+                  </td>
 
                   <td className="mono">
                     {o.tracking_number || "-"}

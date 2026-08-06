@@ -66,3 +66,19 @@ class Tenant(BaseModel):
     back_populates="tenant",
     cascade="all, delete-orphan",
 )
+
+    support_email: Mapped[str | None] = mapped_column(
+        String(255),
+        unique=True,
+        nullable=True,
+    )
+
+    sender_name: Mapped[str | None] = mapped_column(
+        String(255),
+        nullable=True,
+    )
+
+    reply_to_email: Mapped[str | None] = mapped_column(
+        String(255),
+        nullable=True,
+    )

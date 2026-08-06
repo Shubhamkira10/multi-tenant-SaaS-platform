@@ -15,6 +15,14 @@ class ApiResponse:
         )
 
     @staticmethod
+    def ok(data=None, message="Success", status_code=200):
+        return ApiResponse.success(
+            data=data,
+            message=message,
+            status_code=status_code,
+        )
+
+    @staticmethod
     def error(message="Error", status_code=400):
         return JSONResponse(
             status_code=status_code,

@@ -1,0 +1,148 @@
+[
+  {
+    "uuid": "66666666-6666-6666-6666-666666666666",
+    "conversation_id": "CONV-ORD635241",
+    "order_uuid": "44444444-4444-4444-4444-444444444444",
+    "customer_uuid": "5b0c2c80-4fd4-45af-a0cb-1e9b9d65c101",
+    "order_status": "In Transit",
+    "messages": [
+      {
+        "uuid": "77777777-7777-7777-7777-777777777777",
+        "message_id": "<mail1>",
+        "direction": "incoming",
+        "channel": "Email",
+        "sender": "customer@example.com",
+        "subject": "Where is my order?",
+        "body": "I have not received my order.",
+        "timestamp": "2026-07-13 11:38:47"
+      },
+      {
+        "uuid": "88888888-8888-8888-8888-888888888888",
+        "message_id": "<mail2>",
+        "direction": "outgoing",
+        "channel": "Email",
+        "sender": "Elemental Concept",
+        "subject": "Re: Where is my order?",
+        "body": "Your parcel is in transit.",
+        "timestamp": "2026-07-13 11:46:13"
+      },
+      {
+        "message_id": "75b95f94-8c90-4b8f-a524-3d536284e744",
+        "direction": "incoming",
+        "channel": "Email",
+        "sender": "rahul@example.com",
+        "subject": "I received a damaged Laptop Charger",
+        "body": "Hi Team,\n\nI received my Laptop Charger today but it is damaged. Can I get a replacement?\n\nThanks,\nRahul",
+        "timestamp": "2026-08-05 23:58:17"
+      },
+      {
+        "message_id": "77e1aa77-ffce-47b7-8284-0d8930a2df6c",
+        "direction": "outgoing",
+        "channel": "Email",
+        "sender": "Elemental Concept",
+        "subject": "Re: I received a damaged Laptop Charger - Replacement for Order ORD1001",
+        "body": "Dear Rahul Sharma,\n\nThank you for reaching out to ELEMENTAL CONCEPT. I sincerely apologize to hear that the Laptop Charger you received for Order ID ORD1001 is damaged. This is certainly not the quality experience we aim to provide.\n\nGiven your report of receiving the item today and the previous communication regarding its transit, we will proceed with a replacement for you. The Laptop Charger (PROD001) is eligible for replacement as per our policy.\n\nTo arrange this, we will schedule a pick-up for the damaged Laptop Charger at your convenience. Once the damaged item is collected, we will dispatch a new replacement to you immediately.\n\nI have updated your existing investigation ticket (INV-C44E28B6) with this new issue and the details of the replacement process. We will contact you shortly to coordinate the pick-up.\n\nWe appreciate your patience and understanding as we resolve this for you.\n\nBest regards,\nELEMENTAL CONCEPT Customer Support",
+        "timestamp": "2026-08-05 23:58:17"
+      },
+      {
+        "message_id": "0b374d92-de35-42d2-bcff-9200f46934f8",
+        "direction": "incoming",
+        "channel": "Email",
+        "sender": "rahul@example.com",
+        "subject": "I received a damaged Laptop Charger",
+        "body": "Hi Team,\n\nI received my Laptop Charger today but it is damaged. Can I get a replacement?\n\nThanks,\nRahul",
+        "timestamp": "2026-08-06 00:01:20"
+      },
+      {
+        "message_id": "4707144b-12d6-47f9-b284-d4e329ff9e91",
+        "direction": "outgoing",
+        "channel": "Email",
+        "sender": "Elemental Concept",
+        "subject": "Re: I received a damaged Laptop Charger - Update on Replacement for Order ORD1001",
+        "body": "Dear Rahul Sharma,\n\nThank you for reaching out to ELEMENTAL CONCEPT again. We received your previous email regarding the damaged Laptop Charger for Order ID ORD1001 and sent a detailed response to rahul@example.com at 2026-08-05 23:58:17, outlining the steps for replacement.\n\nWe confirm that the replacement process has already been initiated based on your report. Your existing investigation ticket (INV-C44E28B6) was updated accordingly.\n\nAs previously communicated, we will arrange a pick-up for the damaged Laptop Charger at your convenience. Once the item is collected, we will dispatch a new replacement to you immediately. We will contact you shortly to coordinate the pick-up.\n\nWe appreciate your patience and understanding as we resolve this for you. Please check your inbox for our earlier detailed response.\n\nBest regards,\nELEMENTAL CONCEPT Customer Support",
+        "timestamp": "2026-08-06 00:01:20"
+      },
+      {
+        "message_id": "9e56a474-a9d8-4406-9e02-a4e70d22a17e",
+        "direction": "incoming",
+        "channel": "Email",
+        "sender": "rahul@example.com",
+        "subject": "I received a damaged Laptop Charger",
+        "body": "Hi Team,\\n\\nI received my Laptop Charger today but it is damaged. Can I get a replacement?\\n\\nThanks,\\nRahul",
+        "timestamp": "2026-08-06 00:03:13"
+      },
+      {
+        "message_id": "0757fc69-d003-4c82-94a7-f9c526c00548",
+        "direction": "outgoing",
+        "channel": "Email",
+        "sender": "Elemental Concept",
+        "subject": "Re: I received a damaged Laptop Charger - Update on Replacement for Order ORD1001",
+        "body": "Dear Rahul Sharma,\n\nThank you for reaching out to ELEMENTAL CONCEPT again regarding the damaged Laptop Charger for Order ID ORD1001.\n\nWe understand your concern and want to assure you that the replacement process for your damaged Laptop Charger (PROD001) is already well underway. This request was initiated and updated under your existing investigation ticket, INV-C44E28B6, based on your previous communications.\n\nAs previously informed, we are arranging a pick-up for the damaged Laptop Charger at your convenience. Once the damaged item has been collected, a brand new replacement will be dispatched to you immediately.\n\nOur team will contact you shortly to coordinate the pick-up details. We appreciate your continued patience as we work to resolve this for you.\n\nBest regards,\nELEMENTAL CONCEPT Customer Support",
+        "timestamp": "2026-08-06 00:03:13"
+      },
+      {
+        "message_id": "6c08d589-4129-4c31-8e06-edd684e0b446",
+        "direction": "incoming",
+        "channel": "Email",
+        "sender": "rahul@example.com",
+        "subject": "I received a damaged Laptop Charger",
+        "body": "Hi Team,\n\nI received my Laptop Charger today but it is damaged. Can I get a replacement?\n\nThanks,\nRahul",
+        "timestamp": "2026-08-06 00:04:43"
+      },
+      {
+        "message_id": "6e4f5ce7-9f2b-436f-aa04-a1f88eb38f85",
+        "direction": "outgoing",
+        "channel": "Email",
+        "sender": "Elemental Concept",
+        "subject": "Re: I received a damaged Laptop Charger - Replacement for Order ORD1001 Update",
+        "body": "Dear Rahul Sharma,\n\nThank you for reaching out to ELEMENTAL CONCEPT again regarding your damaged Laptop Charger for Order ID ORD1001.\n\nWe understand your concern and want to reassure you that the replacement process for your Laptop Charger (PROD001) is already actively being processed under your existing investigation ticket, INV-C44E28B6.\n\nAs previously communicated, our team is currently arranging the pick-up for the damaged item at your address. Once the pick-up is successfully completed, a brand new replacement will be dispatched to you without delay.\n\nYou will be contacted very shortly to confirm the exact pick-up schedule. We kindly ask for a little more patience as we finalize these arrangements to ensure a smooth resolution.\n\nWe appreciate your understanding and cooperation.\n\nBest regards,\nELEMENTAL CONCEPT Customer Support",
+        "timestamp": "2026-08-06 00:04:43"
+      },
+      {
+        "message_id": "12b17f97-3f00-467f-9ffc-08e78a6ba3a1",
+        "direction": "incoming",
+        "channel": "Email",
+        "sender": "rahul@example.com",
+        "subject": "my order is is ORD1001",
+        "body": "i didn't receive my order yet ",
+        "timestamp": "2026-08-06 09:37:35"
+      },
+      {
+        "message_id": "3655a92d-0377-46ea-aa2e-cb46c49fa70b",
+        "direction": "outgoing",
+        "channel": "Email",
+        "sender": "Elemental Concept",
+        "subject": "Re: my order is is ORD1001 - Clarification Needed for Order ORD1001",
+        "body": "Dear Rahul Sharma,\n\nThank you for reaching out to ELEMENTAL CONCEPT. We've received your email regarding Order ID ORD1001.\n\nWe understand your concern about not having received your order. However, our records from very recent communications, including multiple emails from you today (August 6, 2026), indicate that you *did receive* your Laptop Charger (PROD001) for Order ORD1001, but reported it as damaged and requested a replacement. We have already initiated the replacement process for the damaged item under your existing investigation ticket INV-C44E28B6.\n\nTo ensure we assist you accurately, could you please clarify the situation? Are you now stating that you did not receive the original order at all, or are you inquiring about the status of the replacement for the damaged item you previously reported receiving?\n\nThe process for the replacement of your damaged Laptop Charger is actively underway, and our team is arranging a pick-up for the damaged item. Once it's collected, a new replacement will be dispatched to you promptly.\n\nPlease help us understand your current concern so we can provide the best possible support.\n\nBest regards,\nELEMENTAL CONCEPT Customer Support",
+        "timestamp": "2026-08-06 09:37:35"
+      }
+    ]
+  },
+  {
+    "uuid": "22d360bb-39e4-4b59-b306-3aa30fd4e711",
+    "conversation_id": "CONV-ORD1002",
+    "order_uuid": "55555555-5555-5555-5555-555555555555",
+    "customer_uuid": "9b0f924d-cfa3-4bd8-a7e8-8f7d9cb5e202",
+    "order_status": "Shipped",
+    "messages": [
+      {
+        "message_id": "0144d277-d0a7-416b-a119-319792f4cfcd",
+        "direction": "incoming",
+        "channel": "Email",
+        "sender": "priya@example.com",
+        "subject": "where is my order ",
+        "body": "i didn't receive my order , my order ID is ORD1002",
+        "timestamp": "2026-08-06 10:12:09"
+      },
+      {
+        "message_id": "96cc2796-1575-4d76-96ae-54431534af48",
+        "direction": "outgoing",
+        "channel": "Email",
+        "sender": "Elemental Concept",
+        "subject": "Re: where is my order",
+        "body": "Dear Priya Verma,\n\nThank you for reaching out to ELEMENTAL CONCEPT.\n\nI understand you're looking for an update on your order ORD1002. I've checked the status for you, and I can confirm that your order for the Bluetooth Headphones (PROD003) has already been **Shipped** to your address in Noida, India.\n\nYou should receive it shortly. Please keep an eye on your email for tracking details, or you can often find the latest tracking information by logging into your ELEMENTAL CONCEPT account.\n\nWe appreciate your patience and thank you for choosing ELEMENTAL CONCEPT.\n\nBest regards,\nELEMENTAL CONCEPT Customer Support",
+        "timestamp": "2026-08-06 10:12:09"
+      }
+    ]
+  }
+]

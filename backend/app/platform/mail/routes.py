@@ -1,35 +1,13 @@
-from __future__ import annotations
-
+from fastapi import APIRouter, Depends
 from uuid import UUID
 
-from fastapi import APIRouter, Depends
+from app.core.response import ApiResponse
 
-from app.platform.mail.json_repository import JsonMailRepository
 from app.platform.auth.dependencies import get_current_tenant
-from app.platform.mail.repository import MailRepository
-from app.platform.mail.schemas import (
-    AddressUpdateRequest,
-    CancelRequest,
-    ConversationCreate,
-    CustomerCreate,
-    CustomerUpdate,
-    MessageCreate,
-    OrderCreate,
-    OrderUpdate,
-    ProductCreate,
-    ProductUpdate,
-    RefundRequest,
-    ReplacementRequest,
-    ReturnRequest,
-    TicketCreate,
-    TicketUpdate,
-    TrackingRequest,
-    TestEmailRequest,
-    TestEmailResponse,
-)
+from app.platform.mail.json_repository import JsonMailRepository
 from app.platform.mail.service import MailService
-from app.core.database import get_db
-from app.shared.schemas import ApiResponse
+
+from app.platform.mail.schemas import *
 
 router = APIRouter(
     prefix="/mail",
@@ -38,35 +16,30 @@ router = APIRouter(
 
 
 def get_service(
-    db=Depends(get_db),
     tenant=Depends(get_current_tenant),
 ):
-    repository = MailRepository(
-        db=db,
-        tenant_id=tenant.id,
+
+    repo = JsonMailRepository(
+        tenant.uuid,
     )
 
-    return MailService(repository)
+    return MailService(repo)
 
 @router.get("/dashboard")
 def dashboard(
-    tenant=Depends(get_current_tenant),
+    service: MailService = Depends(get_service),
 ):
-    repository= JsonMailRepository(tenant.uuid)
-
-    return ApiResponse.ok(
-        data=repository.dashboard()
+    return ApiResponse.success(
+        data=service.dashboard()
     )
 
 
 @router.get("/customers")
 def customers(
-    tenant=Depends(get_current_tenant),
+    service: MailService = Depends(get_service),
 ):
-    repository= JsonMailRepository(tenant.uuid)
-
-    return ApiResponse.ok(
-        data=repository.get_customers()
+    return ApiResponse.success(
+        data=service.get_customers()
     )
 
 
@@ -110,12 +83,10 @@ def delete_customer(
 
 @router.get("/products")
 def products(
-    tenant=Depends(get_current_tenant),
+    service: MailService = Depends(get_service),
 ):
-    repository= JsonMailRepository(tenant.uuid)
-
-    return ApiResponse.ok(
-        data=repository.get_products()
+    return ApiResponse.success(
+        data=service.get_products()
     )
 
 
@@ -159,14 +130,11 @@ def delete_product(
 
 @router.get("/orders")
 def orders(
-    tenant=Depends(get_current_tenant),
+    service: MailService = Depends(get_service),
 ):
-    repository= JsonMailRepository(tenant.uuid)
-
-    return ApiResponse.ok(
-        data=repository.get_orders()
+    return ApiResponse.success(
+        data=service.get_orders()
     )
-
 
 @router.get("/orders/{order_uuid}")
 def order(
@@ -247,7 +215,7 @@ def cancel_order(
     data: CancelRequest,
     service: MailService = Depends(get_service)
 ):
-    repository= JsonMailRepository(tenant.uuid)
+    
     return ApiResponse.ok(
         data=service.cancel_order(order_uuid, data)
     )
@@ -259,7 +227,7 @@ def return_order(
     data: ReturnRequest,
     service: MailService = Depends(get_service)
 ):
-    repository= JsonMailRepository(tenant.uuid)
+      
     return ApiResponse.ok(
         data=service.return_order(order_uuid, data)
     )
@@ -271,7 +239,7 @@ def replacement_order(
     data: ReplacementRequest,
     service: MailService = Depends(get_service)
 ):
-    repository= JsonMailRepository(tenant.uuid)
+      
     return ApiResponse.ok(
         data=service.replacement_order(order_uuid, data)
     )
@@ -283,7 +251,7 @@ def refund_order(
     data: RefundRequest,
     service: MailService = Depends(get_service)
 ):
-    repository= JsonMailRepository(tenant.uuid)
+      
     return ApiResponse.ok(
         data=service.refund_order(order_uuid, data)
     )
@@ -294,7 +262,7 @@ def invoice(
     order_uuid: UUID,
     service: MailService = Depends(get_service)
 ):
-    repository= JsonMailRepository(tenant.uuid)
+      
     return ApiResponse.ok(
         data=service.generate_invoice(order_uuid)
     )
@@ -306,11 +274,10 @@ def invoice(
 
 @router.get("/tickets")
 def tickets(
-    tenant=Depends(get_current_tenant),
+    service: MailService = Depends(get_service),
 ):
-    repository= JsonMailRepository(tenant.uuid)
-    return ApiResponse.ok(
-        data=repository.get_tickets()
+    return ApiResponse.success(
+        data=service.get_tickets()
     )
 
 
@@ -319,7 +286,7 @@ def create_ticket(
     data: TicketCreate,
     service: MailService = Depends(get_service)
 ):
-    repository= JsonMailRepository(tenant.uuid)
+      
     return ApiResponse.ok(
         data=service.create_ticket(data)
     )
@@ -331,7 +298,7 @@ def update_ticket(
     data: TicketUpdate,
     service: MailService = Depends(get_service)
 ):
-    repository= JsonMailRepository(tenant.uuid)
+      
     return ApiResponse.ok(
         data=service.update_ticket(ticket_uuid, data)
     )
@@ -343,11 +310,10 @@ def update_ticket(
 
 @router.get("/conversations")
 def conversations(
-    tenant=Depends(get_current_tenant),
+    service: MailService = Depends(get_service),
 ):
-    repository= JsonMailRepository(tenant.uuid)
-    return ApiResponse.ok(
-        data=repository.get_conversations()
+    return ApiResponse.success(
+        data=service.get_conversations()
     )
 
 
@@ -367,7 +333,7 @@ def add_message(
     data: MessageCreate,
     service: MailService = Depends(get_service)
 ):
-    repository= JsonMailRepository(tenant.uuid)
+      
     return ApiResponse.ok(
         data=service.add_message(
             conversation_uuid,
@@ -379,43 +345,31 @@ def add_message(
 # =====================================================
 # EMAIL LOGS
 # =====================================================
-
 @router.get("/email-logs")
 def email_logs(
-    tenant=Depends(get_current_tenant),
+    service: MailService = Depends(get_service),
 ):
-    repository= JsonMailRepository(tenant.uuid)
-    return ApiResponse.ok(
-        data=repository.get_email_logs()
+    return ApiResponse.success(
+        data=service.get_email_logs()
     )
-
 
 # =====================================================
 # HEALTH CHECK
 # =====================================================
-
 @router.get("/health")
 def health(
-    tenant=Depends(get_current_tenant),
+    service: MailService = Depends(get_service),
 ):
-    return ApiResponse.ok(
-        data=repository.ping()
+    return ApiResponse.success(
+        data=service.ping()
     )
 
 @router.post(
     "/test-email",
     response_model=TestEmailResponse,
 )
-def send_test_email(
-    payload: TestEmailRequest,
+def process_test_email(
+    request: TestEmailRequest,
     service: MailService = Depends(get_service),
-    db: Session = Depends(get_db),
 ):
-    repository= JsonMailRepository(tenant.uuid)
-    
-    repository = Mailrepository(db)
-
-    return service.process_test_email(
-        tenant.id,
-        payload,
-    )
+    return service.process_test_email(request)

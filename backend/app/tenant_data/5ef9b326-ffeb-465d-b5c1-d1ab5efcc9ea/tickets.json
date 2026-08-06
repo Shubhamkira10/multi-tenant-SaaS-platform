@@ -1,0 +1,32 @@
+[
+  {
+    "uuid": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
+
+    "ticket_id": "INV-C44E28B6",
+
+    "order_uuid": "44444444-4444-4444-4444-444444444444",
+
+    "customer_uuid": "5b0c2c80-4fd4-45af-a0cb-1e9b9d65c101",
+
+    "type": "Investigation",
+
+    "status": "Open",
+
+    "created_at": "2026-07-12 15:18:55"
+  },
+  {
+    "uuid": "cccccccc-cccc-cccc-cccc-cccccccccccc",
+
+    "ticket_id": "INV-63B6B2D2",
+
+    "order_uuid": "44444444-4444-4444-4444-444444444444",
+
+    "customer_uuid": "5b0c2c80-4fd4-45af-a0cb-1e9b9d65c101",
+
+    "type": "Investigation",
+
+    "status": "Open",
+
+    "created_at": "2026-07-13 11:33:57"
+  }
+]

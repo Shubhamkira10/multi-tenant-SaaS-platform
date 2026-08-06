@@ -14,6 +14,9 @@ function EditTenantModal({
         email: "",
         phone: "",
         description: "",
+        support_email: "",
+        sender_name: "",
+        reply_to_email: "",
         is_active: true,
     });
 
@@ -26,6 +29,11 @@ function EditTenantModal({
                 email: tenant.email,
                 phone: tenant.phone || "",
                 description: tenant.description || "",
+
+                support_email: tenant.support_email || "",
+                sender_name: tenant.sender_name || "",
+                reply_to_email: tenant.reply_to_email || "",
+
                 is_active: tenant.is_active,
             });
 
@@ -151,6 +159,41 @@ function EditTenantModal({
                                     onChange={handleChange}
                                 />
 
+                            </div>
+
+                            <div className="mb-3">
+                                <label>Support Mail</label>
+
+                                <input
+                                    type="email"
+                                    className="form-control"
+                                    name="support_email"
+                                    value={form.support_email}
+                                    onChange={handleChange}
+                                />
+                            </div>
+
+                            <div className="mb-3">
+                                <label>Sender Name</label>
+
+                                <input
+                                    className="form-control"
+                                    name="sender_name"
+                                    value={form.sender_name}
+                                    onChange={handleChange}
+                                />
+                            </div>
+
+                            <div className="mb-3">
+                                <label>Reply-To Mail</label>
+
+                                <input
+                                    type="email"
+                                    className="form-control"
+                                    name="reply_to_email"
+                                    value={form.reply_to_email}
+                                    onChange={handleChange}
+                                />
                             </div>
 
                             <div className="form-check">

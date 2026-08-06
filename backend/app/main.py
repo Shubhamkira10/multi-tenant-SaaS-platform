@@ -6,6 +6,7 @@ from app.api import api_router
 from app.core.config import settings
 from app.core.lifespan import lifespan
 from app.platform.mail.routes import router as mail_router
+from app.platform.dashboard.routes import router as dashboard_router
 
 app = FastAPI(
     title=settings.APP_NAME,
@@ -37,5 +38,10 @@ app.include_router(
 
 app.include_router(
     mail_router,
+    prefix="/api",
+)
+
+app.include_router(
+    dashboard_router,
     prefix="/api",
 )

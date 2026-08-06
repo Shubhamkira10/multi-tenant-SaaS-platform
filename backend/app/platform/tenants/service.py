@@ -53,6 +53,9 @@ class TenantService:
             phone=payload.phone,
             description=payload.description,
             slug=slug,
+            support_email=payload.support_email,
+            sender_name=payload.sender_name,
+            reply_to_email=payload.reply_to_email,
         )
 
         self.repository.add(tenant)
@@ -163,6 +166,11 @@ class TenantService:
             / str(tenant.uuid)
         )
 
+        tenant_folder.mkdir(
+            parents=True,
+            exist_ok=True,
+        )
+
         with tempfile.TemporaryDirectory() as temp_dir:
 
             zip_path = Path(temp_dir) / "upload.zip"
@@ -198,6 +206,7 @@ class TenantService:
                     Path(temp_dir) / filename,
                     tenant_folder / filename,
                 )
+    
 
         return {
             "success": True,

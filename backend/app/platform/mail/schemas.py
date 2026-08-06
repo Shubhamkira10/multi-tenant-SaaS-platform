@@ -391,6 +391,6 @@ class TestEmailRequest(BaseModel):
 
 
 class TestEmailResponse(BaseModel):
-    ok: bool
-    status: str
-    message: str
+    success: bool
+    conversation_id: str
+    reply: str

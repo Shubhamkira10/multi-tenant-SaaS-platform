@@ -1,0 +1,110 @@
+[
+  {
+    "uuid": "99999999-9999-9999-9999-999999999999",
+    "message_id": "<mail1>",
+    "conversation_uuid": "66666666-6666-6666-6666-666666666666",
+    "customer_uuid": "5b0c2c80-4fd4-45af-a0cb-1e9b9d65c101",
+    "customer_email": "rahul@example.com",
+    "order_uuid": "44444444-4444-4444-4444-444444444444",
+    "backend_action": "NONE",
+    "processed_at": "2026-07-13 11:38:47",
+    "provider": "CloudMailin",
+    "status": "Processed"
+  },
+  {
+    "uuid": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+    "message_id": "<mail2>",
+    "conversation_uuid": "66666666-6666-6666-6666-666666666666",
+    "customer_uuid": "5b0c2c80-4fd4-45af-a0cb-1e9b9d65c101",
+    "customer_email": "rahul@example.com",
+    "order_uuid": "44444444-4444-4444-4444-444444444444",
+    "backend_action": "TRACK_ORDER",
+    "processed_at": "2026-07-13 11:46:13",
+    "provider": "Gemini",
+    "status": "Processed"
+  },
+  {
+    "uuid": "092bc90a-b2bb-4167-a4f3-3c561d8284f6",
+    "message_id": "<202608051831.96445937308@smtp-relay.mailin.fr>",
+    "conversation_uuid": "66666666-6666-6666-6666-666666666666",
+    "customer_uuid": "5b0c2c80-4fd4-45af-a0cb-1e9b9d65c101",
+    "customer_email": "rahul@example.com",
+    "order_uuid": "44444444-4444-4444-4444-444444444444",
+    "backend_action": "Provide_Status_Update",
+    "processed_at": "2026-08-05 18:31:20",
+    "provider": "Gemini",
+    "status": "Processed"
+  },
+  {
+    "uuid": "39bb75f8-df4e-49e5-9709-0b7e33f4f6d7",
+    "message_id": "<202608051833.96926539229@smtp-relay.mailin.fr>",
+    "conversation_uuid": "66666666-6666-6666-6666-666666666666",
+    "customer_uuid": "5b0c2c80-4fd4-45af-a0cb-1e9b9d65c101",
+    "customer_email": "rahul@example.com",
+    "order_uuid": "44444444-4444-4444-4444-444444444444",
+    "backend_action": "reaffirm_replacement_process_status",
+    "processed_at": "2026-08-05 18:33:13",
+    "provider": "Gemini",
+    "status": "Processed"
+  },
+  {
+    "uuid": "8b0e4a76-c51c-485b-b2a8-fd9a09903dc8",
+    "message_id": "<202608051834.31516358577@smtp-relay.mailin.fr>",
+    "conversation_uuid": "66666666-6666-6666-6666-666666666666",
+    "customer_uuid": "5b0c2c80-4fd4-45af-a0cb-1e9b9d65c101",
+    "customer_email": "rahul@example.com",
+    "order_uuid": "44444444-4444-4444-4444-444444444444",
+    "backend_action": "none",
+    "processed_at": "2026-08-05 18:34:43",
+    "provider": "Gemini",
+    "status": "Processed"
+  },
+  {
+    "uuid": "055510f8-3fb4-4339-b305-451b85fc2ff3",
+    "message_id": "<202608051836.93507967615@smtp-relay.mailin.fr>",
+    "conversation_uuid": "66666666-6666-6666-6666-666666666666",
+    "customer_uuid": "5b0c2c80-4fd4-45af-a0cb-1e9b9d65c101",
+    "customer_email": "rahul@example.com",
+    "order_uuid": "44444444-4444-4444-4444-444444444444",
+    "backend_action": "none",
+    "processed_at": "2026-08-05 18:36:03",
+    "provider": "Gemini",
+    "status": "Processed"
+  },
+  {
+    "uuid": "011b36fc-d47b-45e4-8302-f57d22fe2e32",
+    "message_id": "<202608060407.58741976549@smtp-relay.mailin.fr>",
+    "conversation_uuid": "66666666-6666-6666-6666-666666666666",
+    "customer_uuid": "5b0c2c80-4fd4-45af-a0cb-1e9b9d65c101",
+    "customer_email": "rahul@example.com",
+    "order_uuid": "44444444-4444-4444-4444-444444444444",
+    "backend_action": "none",
+    "processed_at": "2026-08-06 04:07:35",
+    "provider": "Gemini",
+    "status": "Processed"
+  },
+  {
+    "uuid": "ea2b7cc7-7f86-4064-ba83-42e37267a61c",
+    "message_id": "<202608060420.68217299487@smtp-relay.mailin.fr>",
+    "conversation_uuid": "b7fd2b8a-d30a-44fb-8b98-2c4d87bf9180",
+    "customer_uuid": "9b0f924d-cfa3-4bd8-a7e8-8f7d9cb5e202",
+    "customer_email": "priya@example.com",
+    "order_uuid": "55555555-5555-5555-5555-555555555555",
+    "backend_action": "get_order_status",
+    "processed_at": "2026-08-06 04:20:08",
+    "provider": "Gemini",
+    "status": "Processed"
+  },
+  {
+    "uuid": "678eecd2-6f5b-42ad-95da-ab596d21a67f",
+    "message_id": "<202608060442.23546376850@smtp-relay.mailin.fr>",
+    "conversation_uuid": "22d360bb-39e4-4b59-b306-3aa30fd4e711",
+    "customer_uuid": "9b0f924d-cfa3-4bd8-a7e8-8f7d9cb5e202",
+    "customer_email": "priya@example.com",
+    "order_uuid": "55555555-5555-5555-5555-555555555555",
+    "backend_action": "None",
+    "processed_at": "2026-08-06 04:42:09",
+    "provider": "Gemini",
+    "status": "Processed"
+  }
+]

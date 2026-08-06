@@ -20,3 +20,13 @@ class TenantRepository(BaseRepository[Tenant]):
     
     def slug_exists(self, slug: str) -> bool:
         return self.get_by_slug(slug) is not None
+
+    def get_by_support_email(
+        self,
+        email: str,
+    ):
+        return (
+            self.db.query(Tenant)
+            .filter(Tenant.support_email == email)
+            .first()
+        )

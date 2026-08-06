@@ -126,9 +126,16 @@
 }
 
 .bool-cell {
-  display: flex;
-  align-items: center;
-  gap: 6px;
+  white-space: nowrap;
+}
+
+.bool-cell svg {
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+.bool-cell .sub-text {
+  vertical-align: middle;
 }
 
 .count-badge {
@@ -164,6 +171,7 @@
 .badge-refunded { background: #ede9fe; color: #7c3aed; }
 .badge-out-for-delivery { background: #cffafe; color: #0e7490; }
 .badge-unknown { background: #f3f4f6; color: #6b7280; }
+.badge-shipped { background: #dbeafe; color: #2563eb;}
 
 .badge-open { background: #dbeafe; color: #1d4ed8; }
 .badge-pending { background: #fef3c7; color: #b45309; }

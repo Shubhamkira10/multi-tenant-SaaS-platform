@@ -17,6 +17,7 @@ dist-ssr
 !.vscode/extensions.json
 .idea
 .DS_Store
+Thumbs.db
 *.suo
 *.ntvs*
 *.njsproj
@@ -30,3 +31,14 @@ __pycache__/
 
 # Database
 *.db
+platform.db
+
+# Environment
+.env
+
+# Tenant runtime data
+app/tenant_data/
+
+# Virtual env
+window-venv/
+venv/

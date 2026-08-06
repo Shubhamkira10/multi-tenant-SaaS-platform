@@ -1,0 +1,58 @@
+[
+  {
+    "uuid": "4b52f4c9-5b5d-46a5-8c4d-9a3d3d9d1001",
+    "order_id": "ORD1001",
+
+    "customer_uuid": "9d1b2c67-6d42-49cf-8ef3-cf3cb6e11001",
+    "customer_id": "CUS1001",
+    "customer_name": "Rahul Sharma",
+    "customer_email": "rahul@example.com",
+
+    "product_uuid": "8d2b9d30-9f6f-45ef-b35d-71d73af71001",
+    "product_id": "PROD1001",
+    "product_name": "Wireless Mouse",
+
+    "quantity": 1,
+    "price": 799,
+    "total_amount": 799,
+
+    "payment_status": "Paid",
+    "status": "Delivered",
+
+    "tracking_number": "TRK001245678",
+    "courier": "BlueDart",
+
+    "address": "Delhi, India",
+
+    "ordered_at": "2026-07-01 10:30:00",
+    "updated_at": "2026-07-03 14:15:00"
+  },
+  {
+    "uuid": "4b52f4c9-5b5d-46a5-8c4d-9a3d3d9d1002",
+    "order_id": "ORD1002",
+
+    "customer_uuid": "9d1b2c67-6d42-49cf-8ef3-cf3cb6e11002",
+    "customer_id": "CUS1002",
+    "customer_name": "Priya Verma",
+    "customer_email": "priya@example.com",
+
+    "product_uuid": "8d2b9d30-9f6f-45ef-b35d-71d73af71002",
+    "product_id": "PROD1002",
+    "product_name": "Mechanical Keyboard",
+
+    "quantity": 1,
+    "price": 2499,
+    "total_amount": 2499,
+
+    "payment_status": "Paid",
+    "status": "Shipped",
+
+    "tracking_number": "TRK009874563",
+    "courier": "Delhivery",
+
+    "address": "Noida, India",
+
+    "ordered_at": "2026-07-04 09:20:00",
+    "updated_at": "2026-07-04 18:45:00"
+  }
+]

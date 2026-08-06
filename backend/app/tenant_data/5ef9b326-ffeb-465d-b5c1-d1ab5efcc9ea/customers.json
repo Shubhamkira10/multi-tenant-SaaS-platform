@@ -1,5 +1,6 @@
 [
   {
+    "uuid": "5b0c2c80-4fd4-45af-a0cb-1e9b9d65c101",
     "customer_id": "CUS1001",
     "name": "Rahul Sharma",
     "email": "rahul@example.com",
@@ -8,6 +9,7 @@
     "total_spent": 12500
   },
   {
+    "uuid": "9b0f924d-cfa3-4bd8-a7e8-8f7d9cb5e202",
     "customer_id": "CUS1002",
     "name": "Priya Verma",
     "email": "priya@example.com",

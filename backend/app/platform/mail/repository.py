@@ -68,6 +68,8 @@ class MailRepository:
         self,
         email: str,
     ):
+        print("Tenant ID:", self.tenant_id)
+        print("Email:", email)
 
         stmt = (
             select(Customer)
@@ -77,7 +79,11 @@ class MailRepository:
             )
         )
 
-        return self.db.scalar(stmt)
+        customer = self.db.scalar(stmt)
+
+        print("DB Result:", customer)
+
+        return customer
 
     def create_customer(
         self,
@@ -435,6 +441,25 @@ class MailRepository:
             .unique()
             .scalar_one_or_none()
         )
+    
+    def get_open_conversation(
+        self,
+        customer_id: int,
+    ):
+
+        stmt = (
+            select(Conversation)
+            .where(
+                Conversation.tenant_id == self.tenant_id,
+                Conversation.customer_id == customer_id,
+                Conversation.status == "Open",
+            )
+            .order_by(
+                Conversation.created_at.desc()
+            )
+        )
+
+        return self.db.scalar(stmt)
 
     def create_conversation(
         self,
@@ -802,15 +827,3 @@ class MailRepository:
     def refresh(self, instance):
         self.db.refresh(instance)
     
-
-
-
-    def get_customer_by_email(self, tenant_id: int, email: str):
-        return (
-            self.db.query(Customer)
-            .filter(
-                Customer.tenant_id == tenant_id,
-                Customer.email == email,
-            )
-            .first()
-        )

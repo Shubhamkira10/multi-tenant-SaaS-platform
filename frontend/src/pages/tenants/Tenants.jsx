@@ -72,9 +72,11 @@ function Tenants() {
                                 <th>Phone</th>
                                 <th>Description</th>
                                 <th>Slug</th>
+                                <th>Support Mail</th>
+                                <th>Sender Name</th>
+                                <th>Reply-To Mail</th>
                                 <th>Status</th>
                                 <th>Action</th>
-
                             </tr>
 
                         </thead>
@@ -96,6 +98,10 @@ function Tenants() {
                                     <td>{tenant.description}</td>
 
                                     <td>{tenant.slug}</td>
+
+                                    <td>{tenant.support_email} </td>
+                                    <td>{tenant.sender_name}</td>
+                                    <td>{tenant.reply_to_email}</td>
 
                                     <td>
 
@@ -137,6 +143,9 @@ function Tenants() {
                                         </button>
 
                                     </td>
+
+                                    
+
 
                                 </tr>
 
